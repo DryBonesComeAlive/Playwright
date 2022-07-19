@@ -1,0 +1,11 @@
+test('basic test', async ({ page }) => {
+  await page.goto('http://www.uitestingplayground.com');
+  await expect(page.locator('#title')).toHaveText('UI Test AutomationPlayground');
+  await page.click('text=scrollbars')
+  await expect(page.locator('#hidingButton')).toHaveText('Hiding Button');
+  await page.click('text=UITAP')
+  await page.click('text=Text Input')
+  await page.fill('#newButtonName', 'This Test Works');
+  await page.click('#updatingButton')
+  await expect(page.locator('#updatingButton')).toHaveText('This Test Works');
+});
